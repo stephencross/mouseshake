@@ -1,4 +1,8 @@
-# MouseShake
+# MouseShake is a USS mouse the shakes the mouse pointer when active! This is a hardware solution to 
+# keeping a computer from sleeping.  
+# 
+#
+#
 import time
 import board
 import digitalio
@@ -8,6 +12,7 @@ from adafruit_hid.mouse import Mouse
 max_shake_minutes = 240
 move_distance = 100
 mouse_pause = .5
+loop_sleep = .5
 
 led = digitalio.DigitalInOut(board.GP14)
 led.direction = digitalio.Direction.OUTPUT
@@ -38,11 +43,10 @@ while True:
             active_time = 0
             led.value = False
     else:
-        time.sleep(0.5)
+        time.sleep(loop_sleep)
         
 #    print(active_state)
 #    print(active_time)
 #    if active_state:
 #        print(time.time()- active_time)
-
 
